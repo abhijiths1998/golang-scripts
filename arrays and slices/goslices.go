@@ -49,4 +49,18 @@ func main() {
 
 	}
 
+	//learn to remove a value from the index
+
+	var removeSlice = []string{"a", "b", "c", "d"}
+
+	removeSlice = append(removeSlice, "d", "e", "f", "g")
+
+	fmt.Println("Current list is : ", removeSlice)
+
+	var index int = 4
+
+	removeSlice = append(removeSlice[:index], removeSlice[index+1:]...)
+
+	fmt.Println("Final list : ", removeSlice)
+
 }
