@@ -24,4 +24,4 @@ npm run start
 
 This opens the desktop application window. Pages are stored in memory only, so data is lost when the server stops.
 
-This is just a minimal proof of concept implementing pages, markdown notes and simple todo lists along with sub‑pages. It can be extended to support additional features such as tables, calendars and persistent storage.
+This is just a minimal proof of concept implementing pages, markdown notes and simple todo lists along with sub‑pages. Markdown can be edited and saved with a live preview shown next to the editor. It can be extended to support additional features such as tables, calendars and persistent storage.

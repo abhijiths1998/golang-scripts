@@ -1,4 +1,8 @@
 let currentPage = null;
+const mdArea = document.getElementById('markdown');
+const output = document.getElementById('rendered');
+
+mdArea.addEventListener('input', () => renderMarkdown(mdArea.value));
 
 async function fetchPages() {
   const res = await fetch('http://localhost:8081/api/pages');
@@ -33,7 +37,8 @@ async function loadPage(id) {
   const page = await res.json();
   currentPage = page.id;
   document.getElementById('pageTitle').textContent = page.title;
-  document.getElementById('markdown').value = page.content || '';
+  mdArea.value = page.content || '';
+  renderMarkdown(mdArea.value);
   renderTodos(page.todos);
   renderSubPages(page.children);
 }
@@ -98,6 +103,25 @@ async function createSubPage() {
   document.getElementById('newSubPageTitle').value = '';
   loadPage(currentPage);
   fetchPages();
+}
+
+function renderMarkdown(text) {
+  if (window.marked) {
+    output.innerHTML = marked.parse(text);
+  } else {
+    output.textContent = text;
+  }
+}
+
+async function saveContent() {
+  const title = document.getElementById('pageTitle').textContent;
+  const content = mdArea.value;
+  await fetch(`http://localhost:8081/api/pages/${currentPage}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, content })
+  });
+  renderMarkdown(content);
 }
 
 fetchPages();
