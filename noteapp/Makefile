@@ -1,7 +1,8 @@
-BINARY=noteapp
+GOCMD ?= go
+BINARY = noteapp
 
 build:
-	go build -o $(BINARY)
+	$(GOCMD) build -o $(BINARY)
 
 clean:
 	rm -f $(BINARY)

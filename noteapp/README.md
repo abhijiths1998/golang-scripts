@@ -4,7 +4,12 @@ This is a simple note-taking web application written in Go with a small JavaScri
 
 ## Building and Running
 
-1. Ensure Go is installed (tested with Go 1.21) on your Arch Linux system.
+1. Ensure Go is installed (tested with Go 1.21) on your Arch Linux system. You
+   can install it on Arch Linux using:
+
+   ```bash
+   sudo pacman -S go
+   ```
 2. Navigate to the `noteapp` directory and run:
 
 ```bash
@@ -16,6 +21,13 @@ To compile a standalone binary instead, ensure `make` is available and use:
 ```bash
 make build
 ./noteapp
+```
+
+If you receive an error like `go: No such file or directory`, ensure the `go`
+binary is in your `PATH` or specify it explicitly when running make:
+
+```bash
+GOCMD=/path/to/go make build
 ```
 
 The server listens on `http://localhost:8080`.
