@@ -11,6 +11,13 @@ This is a simple note-taking web application written in Go with a small JavaScri
 go run main.go
 ```
 
+To compile a standalone binary instead, ensure `make` is available and use:
+
+```bash
+make build
+./noteapp
+```
+
 The server listens on `http://localhost:8080`.
 
 Open a browser to that address to start taking notes.
