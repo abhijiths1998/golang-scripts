@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Notion-like App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="sidebar">
+    <h2>Pages</h2>
+    <ul id="pageList"></ul>
+    <input id="newPageTitle" placeholder="New Page"/>
+    <button onclick="createPage()">Create</button>
+  </div>
+  <div id="content">
+    <h2 id="pageTitle"></h2>
+    <textarea id="markdown" placeholder="Write in markdown"></textarea>
+    <h3>Todos</h3>
+    <ul id="todoList"></ul>
+    <input id="newTodoText" placeholder="New todo"/>
+    <button onclick="addTodo()">Add Todo</button>
+    <h3>Subpages</h3>
+    <ul id="subPageList"></ul>
+    <input id="newSubPageTitle" placeholder="New subpage"/>
+    <button onclick="createSubPage()">Create Subpage</button>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
