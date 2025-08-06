@@ -1,0 +1,31 @@
+{
+  "name": "notion-desktop",
+  "version": "1.0.0",
+  "description": "Offline Notion-like app",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "concurrently \"node backend/index.js\" \"npm --prefix frontend run dev\" \"electron .\"",
+    "build": "npm --prefix frontend run build && electron-builder"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "electron": "^28.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0"
+  },
+  "build": {
+    "appId": "com.example.notion",
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
