@@ -22,15 +22,15 @@ func timeTravel() {
 	timeVal, _ := reader.ReadString('\n')
 
 	timeValNew, err := strconv.ParseFloat(strings.TrimSpace(timeVal), 64)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	newTime := currentTime.Add(time.Hour * time.Duration(timeValNew))
 	formattedNewTime := newTime.Format("2006-01-02 15:04:05")
 
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("Original Time : ", formattedTime, "\n\nNew Time : ", formattedNewTime)
-	}
+	fmt.Println("Original Time : ", formattedTime, "\n\nNew Time : ", formattedNewTime)
 
 }
 
