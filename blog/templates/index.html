@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>My Blog</h1>
+    <a href="/new">New Post</a>
+    {{range .}}
+    <article>
+        <h2>{{.Title}}</h2>
+        <p>{{.Content}}</p>
+    </article>
+    {{else}}
+    <p>No posts yet.</p>
+    {{end}}
+</body>
+</html>
